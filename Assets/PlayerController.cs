@@ -14,27 +14,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 position = this.gameObject.transform.position;
+        var body = GetComponent<Rigidbody2D>();
+        Vector2 velocity = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            position.Set(position.x, position.y + speed, position.z);
+            velocity.y += speed;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            position.Set(position.x, position.y - speed, position.z);
+            velocity.y -= speed;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            position.Set(position.x - speed, position.y, position.z);
+            velocity.x -= speed;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            position.Set(position.x + speed, position.y, position.z);
+            velocity.x += speed;
         }
-
-        this.gameObject.transform.position = position;
+        body.velocity = velocity;
     }
 }
