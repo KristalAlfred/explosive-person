@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("PlayerController script started");
     }
 
     // Update is called once per frame
