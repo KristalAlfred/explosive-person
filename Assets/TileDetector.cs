@@ -6,12 +6,13 @@ using UnityEngine.Tilemaps;
 public class TileDetector : MonoBehaviour
 {
     private Tilemap tilemap;
-    private Vector3Int currentTilePos;
+    private Vector3Int currentTilePosCell;
+    public Vector3 currentTilePos;
     // Start is called before the first frame update
     void Start()
     {
         tilemap = GameObject.FindObjectOfType<Tilemap>();
-        currentTilePos = tilemap.WorldToCell(transform.position);
+        currentTilePosCell = tilemap.WorldToCell(transform.position);
     }
 
     // Update is called once per frame
@@ -21,10 +22,11 @@ public class TileDetector : MonoBehaviour
         if (pos != currentTilePos)
         {
             Color brown = new Color(74, 60, 44);
-            tilemap.SetColor(currentTilePos, brown);
+            tilemap.SetColor(currentTilePosCell, brown);
             tilemap.SetTileFlags(pos, TileFlags.None);
             tilemap.SetColor(pos, Color.cyan);
-            currentTilePos = pos;
+            currentTilePosCell = pos;
+            currentTilePos = tilemap.CellToWorld(currentTilePosCell);
         }
         
     }
