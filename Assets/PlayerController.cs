@@ -57,9 +57,11 @@ public class PlayerController : MonoBehaviour
                 Vector3 pos = tile.currentTilePos;
                 pos.x += sizeOffset / 2;
                 pos.y += sizeOffset / 2;
-                Object.Instantiate(bombPrefab, pos, new Quaternion());
+                GameObject newBomb = Instantiate(bombPrefab, pos, new Quaternion());
                 ++currentlyActiveBombs;
             }
         }
     }
+
+ 
 }

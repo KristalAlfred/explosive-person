@@ -8,14 +8,13 @@ public class TileDetector : MonoBehaviour
     private Tilemap tilemap;
     private Vector3Int currentTilePosCell;
     public Vector3 currentTilePos;
-    // Start is called before the first frame update
+
     void Start()
     {
-        tilemap = GameObject.FindObjectOfType<Tilemap>();
+        tilemap = FindObjectOfType<Tilemap>();
         currentTilePosCell = tilemap.WorldToCell(transform.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3Int pos = tilemap.WorldToCell(transform.position);
